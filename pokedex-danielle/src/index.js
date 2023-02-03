@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { GlobalStyled } from './GlobalStyled';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <GlobalStyled/>
     <App />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+
+//1- separar pastas (componentes, constants, context(variaveis com contexto global pra trabalhar com elas em todos os arquivos do projeto. Como uma props num componente proprio.), )
+//2- fazer com q as páginas se comuniquem
+//3-me comunicar com api
+//4-trazer as informações da api
+//5- lógica
+//6- estilização
+
+// endereçar todas as pags e 
+// renderizar os pokemons - {context.pokemon && context.pokemon.map((.....}
