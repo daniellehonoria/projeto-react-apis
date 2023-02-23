@@ -6,7 +6,7 @@ const PokedexPage = () => {
   const navigate = useNavigate()
   return (
     <div>Pokedex
-      <button onClick={()=>GoToHome(navigate)}>Home</button>
+      <button onClick={()=>GoToHome(navigate)}>Todos os pokemons</button>
     </div>
   )
 }

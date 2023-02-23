@@ -5,5 +5,9 @@ export const CardContainer = styled.div`
     padding:10px;
     margin: 5px;
     text-align: center;
-    color: darkblue;
+    color: #f2f2f2;
+
+    img{
+        max-width: 200px;
+    }
 `

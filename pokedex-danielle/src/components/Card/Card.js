@@ -1,13 +1,12 @@
-import axios from "axios"
 import  {CardContainer} from"./CardStyled"
 
 const Card = (props) => {
-  console.log(props)
-  const{img, name} = props
+  const{ pokemon} = props
   return (
     <CardContainer>
-      <img src={img} alt={name}/>
-      <h2>{name}</h2>
+      <h2>{pokemon.id}</h2>
+      <img src={pokemon.img} alt={pokemon.name}/>
+      <h2>{pokemon.name}</h2>
       </CardContainer>
   )
 }
