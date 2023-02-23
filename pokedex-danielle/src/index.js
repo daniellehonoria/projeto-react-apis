@@ -12,11 +12,9 @@ root.render(
 );
 
 
-
-
 //1- separar pastas (componentes, constants, context(variaveis com contexto global pra trabalhar com elas em todos os arquivos do projeto. Como uma props num componente proprio.), )
-//2- fazer com q as páginas se comuniquem
-//3-me comunicar com api
+//2- fazer com q as páginas se comuniquem--OK
+//3-me comunicar com api --OK
 //4-trazer as informações da api
 //5- lógica
 //6- estilização

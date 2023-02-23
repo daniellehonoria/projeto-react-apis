@@ -7,10 +7,9 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<HomePage
-                datasResults ={datasResults}/>}/>
+                <Route path="/" element={<HomePage datasResults ={datasResults}/>}/>
                 <Route path="pokedex" element={<PokedexPage/>}/>
-                <Route path="/pokemon/:Id" element={<DetailsPage/>}/>
+                <Route path="/pokemon/:id" element={<DetailsPage/>}/>
 
             </Routes>
         </BrowserRouter>

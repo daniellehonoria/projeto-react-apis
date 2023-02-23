@@ -5,8 +5,8 @@ const DetailsPage = () => {
     const params = useParams()
   return (
     <>
-    <div>DetailsPage</div>
-    {params.Id}
+    <h1>DetailsPage</h1>
+    {params.id}
     
     </>
     

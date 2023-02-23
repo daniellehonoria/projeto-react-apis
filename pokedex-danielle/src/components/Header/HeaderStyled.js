@@ -22,7 +22,7 @@ width:280px;
 height: 74px;
 border-radius: 8px;
 border: none;
-margin-top: 41px;
+margin: 41px;
 padding: 4px, 10px, 4px, 10px;
 :hover {
     cursor: pointer;
