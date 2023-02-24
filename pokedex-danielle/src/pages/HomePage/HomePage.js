@@ -10,27 +10,32 @@ import axios from 'axios'
 
 const HomePage = () => {
   const [pokemons, setPokemons]=useState([])//pra cada indice do array, recebo um objeto 
-
   const context= useContext(GlobalContext)//conexao com o contexto global do projeto q estão no app 
-  console.log("homepage", context.pokemon)
+  const {pokedex} = context;
 
-useEffect(()=>{
-  fetchPokemons()
-})
-const fetchPokemons = async()=>{
-  try {
-    let i = 1
-    const x= []
-    while(i < 21){
-      const response = await axios.get(`${BASE_URL}/${i}`) //await faz com que a pag espere as infos do api pra renderizar --- axios informa q há uma conexão
-      x.push(response)//tda vez q passar pela response pego infos da pokeapi e por meio da response passo as infos pro array x
-      i++
-    }
-    setPokemons(x)//a var pokemon recebe as infos da var x depois que o laço while terminar(receber os 20 pokemons)
-  } catch (error) {
-    console.log(error)
-  }
+useEffect(() => {
+  fetchPokemons();
+}, []);
+
+//axios que renderiza lista de pokemons
+const fetchPokemons = () => {
+  axios
+    .get(BASE_URL)
+    .then((resp) => {
+      setPokemons(resp.data.results);
+    })
+    .catch((error) => {
+      console.log("Erro ao buscar informaçöes de pokemon");
+      console.log(error.response);
+    })
 }
+const filteredpokemons = () =>
+    pokemons.filter(
+      (pokemonInList) =>
+        !pokedex.find(
+          (pokemonInPokedex) => pokemonInList.name === pokemonInPokedex.name
+        )
+    );        
 
   return (
     <HomeStyled> 
@@ -38,10 +43,15 @@ const fetchPokemons = async()=>{
     <p>HomePage</p>
 
     <main>
-      {pokemons.map((pokemon)=>{
-        return <Card key={pokemon.id} pokemon={pokemon}/>
-      })}
-
+        {filteredpokemons().map((pokemon) => {
+          return (
+            <Card
+              key={pokemon.id}
+              pokemon={pokemon}
+              
+            />
+          );
+        })}
 
 
     </main>
