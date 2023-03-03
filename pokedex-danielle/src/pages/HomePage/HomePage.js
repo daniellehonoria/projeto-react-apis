@@ -9,9 +9,13 @@ import axios from 'axios'
 
 const HomePage = () => {
   const [pokemons, setPokemons]=useState([])//pra cada indice do array, recebo um objeto 
-
+  //const [pokedex, setPokedex]=useState([])
   const context= useContext(GlobalContext)//conexao com o contexto global do projeto q estão no app 
 
+// const addToPokedex =(pokedexToAdd)=>{
+//   const newPokedex=[...pokedex]
+//   const pokedexSearch = newPokedex.find((pokemonInPokedex)=>pokemonInPokedex,id)
+// }
 useEffect(()=>{
   fetchPokemons()
 },[])
@@ -33,8 +37,7 @@ const fetchPokemons = async()=>{
 
   return (
     <HomeStyled> 
-    <Header/>
-    <p>HomePage</p>
+
 
     <main>
       {pokemons.map((pokemon)=>{

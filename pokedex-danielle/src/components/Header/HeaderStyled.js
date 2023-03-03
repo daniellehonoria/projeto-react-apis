@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
-export const Main = styled.header`
+export const HeaderStyled = styled.header`
 display: flex;
 align-items: center;
 justify-content: space-between;
 height: 15vh;
-max-width: 100vw;
+width: 100%;
 background-color:hotpink;
 `
 export const LogoHeaderPokemon = styled.img `
@@ -16,7 +16,7 @@ margin: auto;
 export const PokedexButton = styled.button `
 background-color: #33A4F5;
 color: #FFFFFF;
-font-size:2vw;
+font-size:2vh;
 font-weight:bold;
 width:280px;
 height: 74px;
@@ -28,4 +28,17 @@ padding: 4px, 10px, 4px, 10px;
     cursor: pointer;
     opacity: 0.80;
 }`
+
+export const PokemonsButton = styled.div`
+margin: 41px;
+border: none;
+background-color: none;
+text-align: left;
+text-decoration:underline;
+font-family:Arial, Helvetica, sans-serif;
+font-size:2vh;
+:hover {
+    cursor: pointer
+}
+`
 
