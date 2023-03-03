@@ -24,7 +24,7 @@ const fetchPokemons = async()=>{
       rendPokemons.push(response.data)//tda vez q passar pela response pego infos da pokeapi e por meio da response passo as infos pro array x
       i++
     }
-           setPokemons(rendPokemons)
+    setPokemons(rendPokemons)
 //a var pokemon recebe as infos da var x depois que o laço while terminar(receber os 20 pokemons)
   } catch (error) {
     console.log(error)

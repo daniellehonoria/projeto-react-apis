@@ -11,5 +11,4 @@ const Card = (props) => {
       </CardContainer>
   )
 }
-
 export default Card
