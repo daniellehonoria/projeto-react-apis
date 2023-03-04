@@ -6,7 +6,6 @@ const Card = (props) => {
   const navigate = useNavigate()
 
   const{ pokemon} = props
-  console.log("aqui", pokemon.sprites)
   
   const onClickCard = (id)=>{
     GoToDetailPage(navigate, id)

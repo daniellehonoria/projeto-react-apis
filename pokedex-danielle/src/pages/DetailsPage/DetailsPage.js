@@ -5,37 +5,32 @@ import { BASE_URL } from "../../constants/url"
 import { DetailsStyled } from "./DetailStyled"
 
 const DetailsPage = () => {
-
   const {id} = useParams()
-  const [pokeDetails, setPokedetails] = useState()
+      const [pokemonDetails, setPokemonDetails] =useState()
 
-    const GetPokemons = async(id) =>{
-      const {data}  = await axios.get(
-        `${BASE_URL}/pokemon/${id}`
-      )
-      return data
-    } 
-    useEffect(()=>{
-      GetPokemons(id)
-      .then(pokeDetails=>{
-        setPokedetails(pokeDetails[0])
-      })
-      .catch("Nada a exibir")
-    },[])
+    const GetPokemon = async(id) =>{
+    const {data} = await axios.get(
+      `${BASE_URL}/pokemon/${id}`
+    )
+    return data
+  }
+
+  useEffect(()=>{
+    GetPokemon(id)
+    .then(pokemonDetails=>{
+      setPokemonDetails(pokemonDetails)
+    })
+    .catch("erro")
+  }, [])
+
   return (
-    !pokeDetails? <h1>Id inválida</h1> :
-    ( 
+    !pokemonDetails? <h1>Não existe</h1> :(    
     <DetailsStyled>
-
-    <h1>Detalhes</h1>
-    {id}
-      <h2>{pokeDetails.name}</h2>
+    <h2>{id}</h2>
     </DetailsStyled>
-
+    
     )
 
-
-    
   )
 }
 

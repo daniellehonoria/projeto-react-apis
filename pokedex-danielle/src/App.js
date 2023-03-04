@@ -13,6 +13,7 @@ function App() {
     //estado q recebe os detalhes dos pokemons
   const [detailPokemon, setDetailPokemon] = useState([])
 
+  
 const context = {
   pokedex,
   setPokedex,

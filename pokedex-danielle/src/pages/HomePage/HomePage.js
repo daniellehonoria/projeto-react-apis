@@ -12,10 +12,6 @@ const HomePage = () => {
   //const [pokedex, setPokedex]=useState([])
   const context= useContext(GlobalContext)//conexao com o contexto global do projeto q estão no app 
 
-// const addToPokedex =(pokedexToAdd)=>{
-//   const newPokedex=[...pokedex]
-//   const pokedexSearch = newPokedex.find((pokemonInPokedex)=>pokemonInPokedex,id)
-// }
 useEffect(()=>{
   fetchPokemons()
 },[])
@@ -23,9 +19,9 @@ const fetchPokemons = async()=>{
   try {
     let i = 1
     const rendPokemons = [...new Set(pokemons)]
-    while(i < 21){
-      const response = await axios.get(`${BASE_URL}/${i}`) //await faz com que a pag espere as infos do api pra renderizar --- axios informa q há uma conexão
-      rendPokemons.push(response.data)//tda vez q passar pela response pego infos da pokeapi e por meio da response passo as infos pro array x
+    while(i < 20){
+      const response = await axios.get(`${BASE_URL}/${i}`) 
+      rendPokemons.push(response.data)
       i++
     }
     setPokemons(rendPokemons)
