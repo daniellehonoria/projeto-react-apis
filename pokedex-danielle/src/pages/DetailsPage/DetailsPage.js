@@ -6,36 +6,35 @@ import { DetailsStyled } from "./DetailStyled"
 
 const DetailsPage = () => {
 
-  const {id} = useParams()
-  const [pokeDetails, setPokedetails] = useState()
+  const params = useParams()
+  const [pokeDetails, setPokedetails] = useState({})
 
-    const GetPokemons = async(id) =>{
-      const {data}  = await axios.get(
-        `${BASE_URL}/pokemon/${id}`
-      )
-      return data
+    const GetPokemons = async() =>{
+      try {
+        const response = await axios.get(`${BASE_URL}/${params.id}`);
+        setPokedetails(response.data);
+      } catch (error) {
+        console.log("Erro ao buscar detalhes de pokemon");
+        console.log(error.response);
+      }
     } 
     useEffect(()=>{
-      GetPokemons(id)
-      .then(pokeDetails=>{
-        setPokedetails(pokeDetails[0])
-      })
-      .catch("Nada a exibir")
+      GetPokemons()
     },[])
   return (
     !pokeDetails? <h1>Id inválida</h1> :
     ( 
+<>
     <DetailsStyled>
-
     <h1>Detalhes</h1>
-    {id}
-      <h2>{pokeDetails.name}</h2>
-    </DetailsStyled>
+      <h2>{pokeDetails.id}</h2>
+      <h2>{pokeDetails.ability}</h2>
 
+
+    </DetailsStyled>
+</>
     )
 
-
-    
   )
 }
 

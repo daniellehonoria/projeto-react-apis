@@ -1,7 +1,6 @@
 import Router from './Routes/Router';
 import {BASE_URL} from './constants/url'
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { GlobalContext } from './context/GlobalContext';
 import { GlobalStyled } from './GlobalStyled';
 
@@ -19,8 +18,6 @@ const context = {
   detailPokemon,
   setDetailPokemon
 }
-
-
   return (
     <>
     {/* as infos das variaveis estão acessíveis a todas as pags */}

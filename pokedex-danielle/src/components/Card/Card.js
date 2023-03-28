@@ -1,25 +1,43 @@
 import { useNavigate } from "react-router-dom"
 import { GoToDetailPage } from "../../Routes/coordinator"
-import  {CaptureButton, CardContainer, DetailsButton} from"./CardStyled"
+import  {TypesContainer, 
+  Pokeball, 
+  PokemonType, 
+  CaptureButton, 
+  CardContainer, 
+  DetailsButton, 
+  Pokemon, 
+  PokemonId, 
+  PokemonName} from"./CardStyled"
+import {getType} from '../../utils/ReturnPokemonType'
+import pokeball from '../../assets/pngwing 2.png'
 
 const Card = (props) => {
   const navigate = useNavigate()
 
   const{ pokemon} = props
-  console.log("aqui", pokemon.sprites)
   
   const onClickCard = (id)=>{
     GoToDetailPage(navigate, id)
   }
   return (
-    <CardContainer>
-      <h2>{pokemon.id}</h2>
-      <img src={pokemon.sprites.front_default} alt={pokemon.id}/>
-      <h2>{pokemon.name}</h2>
-      <DetailsButton onClick={()=>onClickCard(pokemon.id)}>Detalhes</DetailsButton>
-     <CaptureButton> <button>Capturar</button>
-      </CaptureButton>
+    <CardContainer color={props.cardColor}>
+      <div>      
+        <PokemonId>{pokemon.id}</PokemonId>
+      <PokemonName>{props.pokemon.name}</PokemonName>
+      <TypesContainer>
+
+        </TypesContainer>
+      <DetailsButton onClick={()=>onClickCard(props.pokemon.id)}>Detalhes</DetailsButton></div>      
+      <div>
+    <Pokemon src={pokemon.sprites.front_default} alt={pokemon.name}/>
+     <CaptureButton>Capturar</CaptureButton>
+      </div>
+      <Pokeball src={pokeball} alt="pokeball" />
+
+
       </CardContainer>
   )
+  
 }
 export default Card
