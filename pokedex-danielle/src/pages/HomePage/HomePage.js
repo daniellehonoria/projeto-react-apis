@@ -6,7 +6,6 @@ import Card from '../../components/Card/Card'
 import { HomeStyled } from './HomeStyled'
 import { BASE_URL } from '../../constants/url'
 import axios from 'axios'
-
 const HomePage = () => {
   const [pokemons, setPokemons]=useState([])//pra cada indice do array, recebo um objeto 
   //const [pokedex, setPokedex]=useState([])
@@ -41,7 +40,9 @@ const fetchPokemons = async()=>{
 
     <main>
       {pokemons.map((pokemon)=>{
-        return <Card key={pokemon.id} pokemon={pokemon}/>
+        return <Card 
+
+        key={pokemon.id} pokemon={pokemon}/>
       })}
 
 

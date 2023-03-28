@@ -11,14 +11,12 @@ const DetailsPage = () => {
 
     const GetPokemons = async() =>{
       try {
-        const response = await axios.get(`${BASE_URL}/${params.pokemonName}`);
+        const response = await axios.get(`${BASE_URL}/${params.id}`);
         setPokedetails(response.data);
-        
       } catch (error) {
         console.log("Erro ao buscar detalhes de pokemon");
         console.log(error.response);
       }
-
     } 
     useEffect(()=>{
       GetPokemons()
@@ -26,11 +24,13 @@ const DetailsPage = () => {
   return (
     !pokeDetails? <h1>Id inválida</h1> :
     ( 
-      <>
+<>
     <DetailsStyled>
-
     <h1>Detalhes</h1>
-      <h2>{pokeDetails.name}</h2>
+      <h2>{pokeDetails.id}</h2>
+      <h2>{pokeDetails.ability}</h2>
+
+
     </DetailsStyled>
 </>
     )
