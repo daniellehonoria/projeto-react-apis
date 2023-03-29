@@ -30,7 +30,6 @@ const DetailsPage = () => {
       <h2>{pokeDetails.id}</h2>
       <h2>{pokeDetails.ability}</h2>
 
-
     </DetailsStyled>
 </>
     )

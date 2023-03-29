@@ -8,13 +8,13 @@ export const CardContainer = styled.div`
   border-radius: 12px;
   display: flex;
   position: relative;
-  margin: 50px;
+  margin: 20px;
   color: #ffffff;
 `;
 
 export const PokemonId = styled.p`
   font-family: "Inter", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   text-align: left;
 `;
@@ -28,12 +28,13 @@ export const PokemonName = styled.h1`
 `;
 
 export const PokemonType = styled.img`
-  max-width: 100px;
+  max-width: 50px;
   height: 32px;
   border-radius: 8px;
   overflow: hidden;
   border: 1px dashed #ffffff;
-  margin-right: 8px;
+  margin-right: 10px;
+  margin-bottom:50px
 `;
 
 export const TypesContainer = styled.div`
@@ -67,7 +68,7 @@ export const CaptureButton = styled.button`
 export const Pokemon = styled.img`
 width: 193px;
 height: 193px;
-position: absolute;
+position:center;
 top: -60px;
 right: 0;
 z-index: 2;

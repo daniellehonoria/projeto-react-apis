@@ -4,12 +4,12 @@ export const HeaderStyled = styled.header`
 display: flex;
 align-items: center;
 justify-content: space-between;
-height: 15vh;
+height: 20vh;
 width: 100%;
-background-color:hotpink;
+background-color:white;
 `
 export const LogoHeaderPokemon = styled.img `
-height: 113px;
+height: 100px;
 align-items: center;
 margin: auto;
 `

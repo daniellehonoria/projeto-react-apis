@@ -26,7 +26,9 @@ const Card = (props) => {
         <PokemonId>{pokemon.id}</PokemonId>
       <PokemonName>{props.pokemon.name}</PokemonName>
       <TypesContainer>
-
+      {pokemon.types.map((type)=>{
+        return <PokemonType key ={pokemon.id} src={getType(type)}/>
+      })}
         </TypesContainer>
       <DetailsButton onClick={()=>onClickCard(props.pokemon.id)}>Detalhes</DetailsButton></div>      
       <div>
