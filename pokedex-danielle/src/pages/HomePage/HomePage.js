@@ -38,13 +38,13 @@ const fetchPokemons = async()=>{
   return (
     <HomeStyled> 
 
-    <main>
+  
       {pokemons.map((pokemon)=>{
         return <Card 
-        cardColor={getColors(pokemon.types.type)}
-        key={pokemon.name} pokemon={pokemon}/>
+        cardColor={getColors(pokemon.name)}
+        key={pokemon.id} pokemon={pokemon}/>
       })}
-   </main>
+  
 
    </HomeStyled>
    

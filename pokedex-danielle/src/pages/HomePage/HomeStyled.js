@@ -1,18 +1,13 @@
 import styled from "styled-components";
 
 export const HomeStyled = styled.div`
-display: flex;
+display: grid;
 background-color: gray;
 width: auto;
 justify-content: center;
 align-items: center;
-main{
-    display: grid;
-    width: auto;
-    grid-template-columns: 60vh 60vh 60vh;
-    align-items: center;
-    justify-content: center;
-
-}
+display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+  justify-items: center;
 
 `

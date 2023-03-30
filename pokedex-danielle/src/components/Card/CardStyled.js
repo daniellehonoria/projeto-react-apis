@@ -28,17 +28,30 @@ export const PokemonName = styled.h1`
 `;
 
 export const PokemonType = styled.img`
-  max-width: 50px;
+  max-width: 100px;
   height: 32px;
   border-radius: 8px;
   overflow: hidden;
   border: 1px dashed #ffffff;
-  margin-right: 10px;
-  margin-bottom:50px
+  margin-right: 8px
 `;
 
 export const TypesContainer = styled.div`
   margin-bottom: 52px;
+`;
+export const ButtonDelete = styled.button`
+  padding: 4px 10px;
+  width: 146px;
+  height: 38px;
+  background: #ff6262;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 22px;
+  z-index: 2;
+  color: #ffffff;
 `;
 export const Pokeball = styled.img`
   position: absolute;
@@ -69,10 +82,12 @@ export const Pokemon = styled.img`
 width: 193px;
 height: 193px;
 position:center;
-top: -60px;
+margin-top: -50px;
+
 right: 0;
 z-index: 2;
 `
+
 export const DetailsButton = styled.div`
     font-family:Arial, Helvetica, sans-serif;
     text-align:left;
