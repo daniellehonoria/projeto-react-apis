@@ -1,42 +1,51 @@
 
 export const getColors = (type) => {
     switch(type) {
-      case "Bug":
-        return "#316520";
-      case "Dark":
-        return "#5C5365";
-      case "Dragon":
-        return "#0A6CBF";
-      case "Electric":
-        return "#F4D23B";
-      case "Fairy":
-        return "#EC8FE6";
-      case "Fighting":
-        return "#CE4069";
-      case "Fire":
-        return "#F44900";
-      case "Flying":
-        return "#6892B0";
-      case "Ghost":
-        return "#5269AC";
-      case "Grass":
-        return "#70B873";
-      case "Ground":
-        return "#D97745";
-      case "Ice":
-        return "#74CEC0";
-      case "Normal":
-        return "#8A8A8A";
-      case "Poison":
-        return "#AD61AE";
-      case "Psychic":
-        return "#F67176";
-      case "Rock":
-        return "#C7B78B";
-      case "Steel":
-        return "#BBBBBB";
-      case "Water":
-        return "#33A4F5";
+      case "bulbasaur":
+        return "#729F92";
+        case "ivysaur":
+          return "#729F92";
+          case "venusaur":
+            return "#729F92";
+
+      case "squirtle":
+        return "#71C3FF";
+        case "wartortle":
+          return "#71C3FF";
+          case "blastoise":
+            return "#71C3FF";
+
+      case "charmander":
+        return "#EAAB7D";
+        case "charmeleon":
+          return "#EAAB7D";
+          case "charizard":
+            return "#EAAB7D";
+
+      case "caterpie":
+        return "#76A866";
+        case "metapod":
+          return "#76A866";
+          case "butterfree":
+            return "#76A866";
+            case "weedle":
+              return "#76A866";
+              case "kakuna":
+                return "#76A866";
+                case "beedrill":
+                  return "#76A866";
+
+      case "pidgey":
+        return "#BF9762";
+        case "pidgeotto":
+          return "#BF9762";
+          case "pidgeot":
+            return "#BF9762";
+            case "rattata":
+              return "#BF9762";
+              case "raticate":
+                return "#BF9762";
+
       default:
         return "#8A8A8A";
     }

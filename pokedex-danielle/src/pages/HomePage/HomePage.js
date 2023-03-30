@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../../components/Header/Header'
 import { useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import Card from '../../components/Card/Card'
 import { HomeStyled } from './HomeStyled'
 import { BASE_URL } from '../../constants/url'
 import axios from 'axios'
+import {getColors} from "../../utils/ReturnCardColor"
+
 const HomePage = () => {
   const [pokemons, setPokemons]=useState([])//pra cada indice do array, recebo um objeto 
   //const [pokedex, setPokedex]=useState([])
@@ -37,20 +38,15 @@ const fetchPokemons = async()=>{
   return (
     <HomeStyled> 
 
-
-    <main>
+  
       {pokemons.map((pokemon)=>{
         return <Card 
-
+        cardColor={getColors(pokemon.name)}
         key={pokemon.id} pokemon={pokemon}/>
       })}
+  
 
-
-
-    </main>
-
-
-    </HomeStyled>
+   </HomeStyled>
    
   )
 }

@@ -10,13 +10,33 @@ function App() {
   const [pokedex, setPokedex] = useState([])
 
     //estado q recebe os detalhes dos pokemons
-  const [detailPokemon, setDetailPokemon] = useState([])
+    const [pokemonDetails, setPokemonDetails] = useState([])
 
+  const [isOpen, setIsOpen] = useState(false)
+
+  const addToPokedex = (pokemonAdd) => {
+    const isAlreadyOnPokedex = pokedex.find((pokemonInPokedex) => pokemonInPokedex.name === pokemonAdd.name)
+    if(!isAlreadyOnPokedex) {
+      const newPokedex = [...pokedex, pokemonAdd]
+      setPokedex(newPokedex)
+      setIsOpen(true)
+    }
+  }
+
+  const removeFromPokedex = (pokemonToRemove) => {
+    const newPokedex = pokedex.filter((pokemonInPokedex) => pokemonInPokedex.name !== pokemonToRemove.name)
+    setPokedex(newPokedex)
+    setIsOpen(true)
+  }
 const context = {
   pokedex,
   setPokedex,
-  detailPokemon,
-  setDetailPokemon
+  pokemonDetails,
+  setPokemonDetails,
+  removeFromPokedex,
+  addToPokedex,
+  isOpen,
+  setIsOpen
 }
   return (
     <>
