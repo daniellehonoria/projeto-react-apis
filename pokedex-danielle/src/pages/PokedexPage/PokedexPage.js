@@ -7,15 +7,14 @@ import { DivCards, DivMain, TitlePokedex } from "./pokedexPageStyled";
 
 const PokedexPage = () => {
   const context = useContext(GlobalContext);
-  const { pokedex, showMessage, setShowMessage } = context;
+  const { pokedex, message, setMessage } = context;
 
   return (
     <div>
       <DivMain>
         <TitlePokedex>Meus Pokémons</TitlePokedex>
-        <ModalDelete onClose={() => setShowMessage(false)} show={showMessage}/>
+        <ModalDelete onClose={() => setMessage(false)} show={message}/>
         <DivCards>
-          {/* getting pokedex state from the button on Card and mapping to show the pokemons */}
           {pokedex.map((pokemon) => {
             return (
               <Card
