@@ -15,8 +15,8 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
 
   const addToPokedex = (pokemonAdd) => {
-    const isAlreadyOnPokedex = pokedex.find((pokemonInPokedex) => pokemonInPokedex.name === pokemonAdd.name)
-    if(!isAlreadyOnPokedex) {
+    const itIsInPokedex = pokedex.find((pokemonInPokedex) => pokemonInPokedex.name === pokemonAdd.name)
+    if(!itIsInPokedex) {
       const newPokedex = [...pokedex, pokemonAdd]
       setPokedex(newPokedex)
       setIsOpen(true)
