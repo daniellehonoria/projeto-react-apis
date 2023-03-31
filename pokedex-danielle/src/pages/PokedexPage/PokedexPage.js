@@ -7,26 +7,22 @@ import { DivCards, DivMain, TitlePokedex } from "./pokedexPageStyled";
 
 const PokedexPage = () => {
   const context = useContext(GlobalContext);
-  const { pokedex, message, setMessage } = context;
+  const { pokedex, showMessage, setShowMessage } = context;
 
   return (
-    <div>
-      <DivMain>
-        <TitlePokedex>Meus Pokémons</TitlePokedex>
-        <ModalDelete onClose={() => setMessage(false)} show={message}/>
-        <DivCards>
-          {pokedex.map((pokemon) => {
-            return (
-              <Card
-                key={pokemon.id}
-                pokemon={pokemon}
-                pokemonUrl={`${BASE_URL}/${pokemon.name}`}
-              />
-            );
-          })}
-        </DivCards>
-      </DivMain>
-    </div>
+    <>
+        <DivMain>
+          <TitlePokedex>Meus Pokemons</TitlePokedex>
+          <DivCards>
+            {pokedex && pokedex.map((pokemon)=>( 
+            <Card
+            key={pokemon.id}
+            pokemonUrl={`${BASE_URL}/pokemon/${pokemon.id}`}
+            />
+            ))}
+          </DivCards>  
+        </DivMain>
+    </>
   );
 };
 

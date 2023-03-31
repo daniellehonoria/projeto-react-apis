@@ -60,7 +60,7 @@ const Card = (props) => {
               removeFromPokedex(pokemonInfo);
             }}
           >
-            Excluir
+            Excluir!
           </ButtonDelete>
         )}
 
