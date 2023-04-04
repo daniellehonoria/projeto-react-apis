@@ -4,32 +4,7 @@ import { useContext, useEffect, useState } from "react"
 import {useParams} from "react-router-dom"
 import { BASE_URL } from "../../constants/url"
 import {BoxBaseStats, 
-  TitleBaseStats,
-   ImageContainer, 
-   ContainerImage, 
-   DetailsStyled, 
-   TitleDetails, 
-   Card, ContainerStats,
-   ImagePokeball,
-   LineStats,
-   DivStat,
-   TextStats,
-   NumberStats,
-   DivTable,
-   TableStats,
-   TextTotalStats,
-   NumberTotalStats,
-   DatasDiv,
-   PokemonID,
-   PokemonName,
-   DivType,
-   PokemonType,
-   DivMoves,
-   TitleMoves,
-   DivMoveTypes,
-   TextMoveType,
-   ImageCard
-  } from "./DetailStyled"
+  TitleBaseStats,ImageContainer, ContainerImage, DetailsStyled, TitleDetails, Card, ContainerStats,ImagePokeball,LineStats,DivStat,TextStats,NumberStats,DivTable,TableStats,TextTotalStats,NumberTotalStats,DatasDiv,PokemonID,PokemonName,DivType,PokemonType,DivMoves,TitleMoves,DivMoveTypes,TextMoveType,ImageCard} from "./DetailStyled"
 import { getPokemonColors } from "../../utils/ColorDetailsPage"
 import {getType} from "../../utils/ReturnPokemonType"
 import { GlobalContext } from '../../context/GlobalContext'

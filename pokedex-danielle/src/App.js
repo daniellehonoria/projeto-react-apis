@@ -14,7 +14,9 @@ function App() {
     const [pokemonDetails, setPokemonDetails] = useState([])
     const [pokemonList, setPokemonList] = useState([]);
 
+    //estado q exibe mensagem adc ou remove pokemon
   const [message, setMessage] = useState(false);
+
   useEffect(() => {
     fetchPokemonList();
   }, []);
@@ -59,7 +61,6 @@ const context = {
 }
   return (
     <>
-    {/* as infos das variaveis estão acessíveis a todas as pags */}
     <GlobalContext.Provider value={context}>
       <GlobalStyled/>
       <Router/>

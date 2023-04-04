@@ -3,25 +3,31 @@ import Card from "../../components/Card/Card";
 import { BASE_URL } from "../../constants/url";
 import { GlobalContext } from "../../context/GlobalContext";
 import { ModalDelete } from "../../components/Modal/Modal";
-import { DivCards, DivMain, TitlePokedex } from "./pokedexPageStyled";
+import { CardsPokedex, MainPokedex, Title } from "./pokedexPageStyled";
 
 const PokedexPage = () => {
   const context = useContext(GlobalContext);
-  const { pokedex, showMessage, setShowMessage } = context;
+  const { pokedex, message, setMessage } = context;
 
   return (
     <>
-        <DivMain>
-          <TitlePokedex>Meus Pokemons</TitlePokedex>
-          <DivCards>
-            {pokedex && pokedex.map((pokemon)=>( 
+        <MainPokedex>
+          <Title>Meus Pokemons</Title>
+          <ModalDelete onClose={() => setMessage(false)} display={message}/>
+
+          <CardsPokedex>
+            {pokedex.map((pokemon)=>{
+              return(
             <Card
             key={pokemon.id}
-            pokemonUrl={`${BASE_URL}/pokemon/${pokemon.id}`}
+            pokemon={pokemon}
+
+            pokemonUrl={`${BASE_URL}/${pokemon.name}`}
             />
-            ))}
-          </DivCards>  
-        </DivMain>
+              )
+})}
+          </CardsPokedex>  
+        </MainPokedex>
     </>
   );
 };

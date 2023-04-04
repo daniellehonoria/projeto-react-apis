@@ -10,14 +10,9 @@ import {ModalCapture} from "../../components/Modal/Modal"
 
 const HomePage = () => {
   const [pokemons, setPokemons]=useState([])//pra cada indice do array, recebo um objeto 
-  //const [pokedex, setPokedex]=useState([])
   const context= useContext(GlobalContext)//conexao com o contexto global do projeto q estão no app 
-  const { pokemonList, pokedex, message, setMessage } = context;
+  const { message, setMessage } = context;
 
-// const addToPokedex =(pokedexToAdd)=>{
-//   const newPokedex=[...pokedex]
-//   const pokedexSearch = newPokedex.find((pokemonInPokedex)=>pokemonInPokedex,id)
-// }
 useEffect(()=>{
   fetchPokemons()
 },[])
@@ -44,14 +39,15 @@ const fetchPokemons = async()=>{
       <HomeStyled> 
 
     <TitlePage>Todos os pokémons</TitlePage>     
-     <ModalCapture onClose={() => setMessage(false)} show={message}/>
+     <ModalCapture onClose={() => setMessage(false)} display={message}/>
 
 
     <ListPokemons>      
       {pokemons.map((pokemon)=>{
         return <Card 
         cardColor={getColors(pokemon.name)}
-        key={pokemon.id} pokemon={pokemon}/>
+        key={pokemon.id} pokemon={pokemon}
+        pokemonUrl={`${BASE_URL}/${pokemon.name}`}/>
       })}</ListPokemons>
   
   
