@@ -1,9 +1,9 @@
 import { DivModal, DivModalBody, DivModalContent, ModalTitle } from "./modalStyled"
 
 export const ModalCapture = (props) => {
-    const {onClose, show} = props
+    const {onClose, display} = props
 
-    if (!show) {
+    if (!display) {
         return null
     }
     
@@ -20,9 +20,9 @@ export const ModalCapture = (props) => {
 }
 
 export const ModalDelete = (props) => {
-    const {onClose, show} = props
+    const {onClose, display} = props
 
-    if (!show) {
+    if (!display) {
         return null
     }
 

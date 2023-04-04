@@ -2,20 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import Card from '../../components/Card/Card'
-import { HomeStyled } from './HomeStyled'
+import { HomeStyled, TitlePage, ListPokemons} from './HomeStyled'
 import { BASE_URL } from '../../constants/url'
 import axios from 'axios'
 import {getColors} from "../../utils/ReturnCardColor"
+import {ModalCapture} from "../../components/Modal/Modal"
 
 const HomePage = () => {
   const [pokemons, setPokemons]=useState([])//pra cada indice do array, recebo um objeto 
-  //const [pokedex, setPokedex]=useState([])
   const context= useContext(GlobalContext)//conexao com o contexto global do projeto q estão no app 
+  const { message, setMessage } = context;
 
-// const addToPokedex =(pokedexToAdd)=>{
-//   const newPokedex=[...pokedex]
-//   const pokedexSearch = newPokedex.find((pokemonInPokedex)=>pokemonInPokedex,id)
-// }
 useEffect(()=>{
   fetchPokemons()
 },[])
@@ -36,18 +33,29 @@ const fetchPokemons = async()=>{
 }
 
   return (
-    <HomeStyled> 
+    <>
 
-  
+    
+      <HomeStyled> 
+
+    <TitlePage>Todos os pokémons</TitlePage>     
+     <ModalCapture onClose={() => setMessage(false)} display={message}/>
+
+
+    <ListPokemons>      
       {pokemons.map((pokemon)=>{
         return <Card 
         cardColor={getColors(pokemon.name)}
-        key={pokemon.id} pokemon={pokemon}/>
-      })}
+        key={pokemon.id} pokemon={pokemon}
+        pokemonUrl={`${BASE_URL}/${pokemon.name}`}/>
+      })}</ListPokemons>
+  
   
 
    </HomeStyled>
    
+    </>
+  
   )
 }
 

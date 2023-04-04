@@ -1,21 +1,21 @@
 import styled from "styled-components";
 
-export const DivMain = styled.div`
+export const MainPokedex = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1440px;
-  height: 2455px;
+  width: 100%;
+  height: auto;
   background: #5e5e5e;
 `;
 
-export const DivCards = styled.div`
+export const CardsPokedex = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1vw;
   justify-content: center;
 `;
 
-export const TitlePokedex = styled.p`
+export const Title = styled.p`
   padding: 30px 0 100px 30px;
   width: 420px;
   height: 72px;

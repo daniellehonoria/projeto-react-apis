@@ -1,4 +1,3 @@
-//get the type from the .type property and return a hex color for the card
 export const getPokemonColors = (type) => {
   switch (type) {
     case "bug":

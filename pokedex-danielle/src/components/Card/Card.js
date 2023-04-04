@@ -1,20 +1,9 @@
 import { useNavigate } from "react-router-dom"
 import { GoToDetailPage } from "../../Routes/coordinator"
-import  { useContext, useEffect, useState } from "react"
+import  { useContext } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 import { useLocation } from "react-router-dom"
-import  {
-  TypesContainer, 
-  Pokeball, 
-  PokemonType, 
-  CaptureButton, 
-  CardContainer, 
-  DetailsButton, 
-  Pokemon, 
-  PokemonId, 
-  PokemonName,
-  ButtonDelete
-} from"./CardStyled"
+import  {TypesContainer,Pokeball, PokemonType, CaptureButton, CardContainer, DetailsButton, Pokemon, PokemonId,PokemonName,ButtonDelete} from"./CardStyled"
 import {getType} from '../../utils/ReturnPokemonType'
 import pokeball from '../../assets/pngwing 2.png'
 
@@ -23,7 +12,6 @@ const Card = (props) => {
   const context = useContext(GlobalContext);
 
   const { addToPokedex, removeFromPokedex } = context;
-  const [pokemonInfo, setPokemonInfo] = useState([]);
   const location = useLocation();
 
   const{ pokemon} = props
@@ -34,14 +22,17 @@ const Card = (props) => {
   return (
     <CardContainer color={props.cardColor}>
       <div>      
-        <PokemonId>#0{pokemon.id}</PokemonId>
+        <PokemonId>#{pokemon.id}</PokemonId>
       <PokemonName>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</PokemonName>
       <TypesContainer>
       {pokemon.types?.map((type)=>{
-        return <PokemonType key ={pokemon.id} src={getType(type.type.name)} />
+        return (<PokemonType key ={pokemon.id} src={getType(type.type.name)} />)
       })}
         </TypesContainer>
-      <DetailsButton onClick={()=>onClickCard(props.pokemon.id)}>Detalhes</DetailsButton></div>      
+      <DetailsButton onClick={
+        ()=>onClickCard(props.pokemon.id)}>
+          Detalhes
+        </DetailsButton></div>      
       <div>
     <Pokemon src={pokemon.sprites?.other["official-artwork"]["front_default"]}
           alt={pokemon.name}/>
@@ -49,7 +40,8 @@ const Card = (props) => {
         {location.pathname === "/" ? (
           <CaptureButton
             onClick={() => {
-              addToPokedex(pokemonInfo);
+
+              addToPokedex(pokemon);
             }}
           >
             Capturar!
@@ -57,10 +49,11 @@ const Card = (props) => {
         ) : (
           <ButtonDelete
             onClick={() => {
-              removeFromPokedex(pokemonInfo);
+    
+              removeFromPokedex(pokemon);
             }}
           >
-            Excluir
+            Excluir!
           </ButtonDelete>
         )}
 

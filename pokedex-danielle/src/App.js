@@ -3,6 +3,7 @@ import {BASE_URL} from './constants/url'
 import { useState, useEffect } from 'react';
 import { GlobalContext } from './context/GlobalContext';
 import { GlobalStyled } from './GlobalStyled';
+import axios from "axios";
 
 function App() {
 
@@ -11,22 +12,40 @@ function App() {
 
     //estado q recebe os detalhes dos pokemons
     const [pokemonDetails, setPokemonDetails] = useState([])
+    const [pokemonList, setPokemonList] = useState([]);
 
-  const [isOpen, setIsOpen] = useState(false)
+    //estado q exibe mensagem adc ou remove pokemon
+  const [message, setMessage] = useState(false);
+
+  useEffect(() => {
+    fetchPokemonList();
+  }, []);
+
+  const fetchPokemonList = () => {
+    axios
+      .get(BASE_URL)
+      .then((resp) => {
+        setPokemonList(resp.data.results);
+      })
+      .catch((error) => {
+        console.log("Erro ao buscar informaçöes de pokemon");
+        console.log(error.response);
+      });
+  };
 
   const addToPokedex = (pokemonAdd) => {
     const itIsInPokedex = pokedex.find((pokemonInPokedex) => pokemonInPokedex.name === pokemonAdd.name)
     if(!itIsInPokedex) {
       const newPokedex = [...pokedex, pokemonAdd]
       setPokedex(newPokedex)
-      setIsOpen(true)
     }
+    setMessage(true)
   }
 
-  const removeFromPokedex = (pokemonToRemove) => {
-    const newPokedex = pokedex.filter((pokemonInPokedex) => pokemonInPokedex.name !== pokemonToRemove.name)
+  const removeFromPokedex = (pokemonRemove) => {
+    const newPokedex = pokedex.filter((pokemonInPokedex) => pokemonInPokedex.name !== pokemonRemove.name)
     setPokedex(newPokedex)
-    setIsOpen(true)
+    setMessage(true)
   }
 const context = {
   pokedex,
@@ -35,12 +54,13 @@ const context = {
   setPokemonDetails,
   removeFromPokedex,
   addToPokedex,
-  isOpen,
-  setIsOpen
+  setMessage,
+ message,
+ pokemonList,
+ setPokemonList
 }
   return (
     <>
-    {/* as infos das variaveis estão acessíveis a todas as pags */}
     <GlobalContext.Provider value={context}>
       <GlobalStyled/>
       <Router/>
